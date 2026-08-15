@@ -418,6 +418,7 @@ ${meal.youtube ? `
 }
 
 
+
 export function displayareas() {
 
     let areascusines = document.getElementById("areascusines");
@@ -799,7 +800,7 @@ export function updateProgress(key, current, goal, unit) {
 export function openLogMealModal() {
 
     if (!state.currentMeal || !state.currentNutrition) {
-        alert("calculating...");
+        
         return;
     }
 
