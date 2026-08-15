@@ -1,0 +1,13 @@
+.loading {
+  display:none
+}
+#sidebar {
+  transition: transform 0.3s ease;
+}
+#sidebar.sidebar-hidden {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+}
