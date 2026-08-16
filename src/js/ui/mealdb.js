@@ -21,7 +21,6 @@ export async function getRecipes(search) {
     displayRecipes();
 }
 
-area
 export async function getCategories() {
 
     let response = await fetch(
