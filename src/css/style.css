@@ -1,11 +1,31 @@
 .loading {
   display:none
 }
-#sidebar {
-    transform: translateX(0);
+/* Mobile sidebar overlay */
+#sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 40;
+
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
 }
-@media (max-width: 640px) {
-    #sidebar {
-        transform: translateX(-100%);
-    }
+
+#sidebar-overlay.open {
+  display: block !important;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  #sidebar-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
