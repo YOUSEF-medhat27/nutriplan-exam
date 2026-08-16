@@ -29,18 +29,18 @@ export let categoryIcons = {
 };
 
 export let categoryColors = {
-    Beef: "bg-red-500",
-    Chicken: "bg-orange-500",
-    Dessert: "bg-pink-500",
-    Lamb: "bg-orange-500",
-    Pasta: "bg-amber-500",
-    Pork: "bg-red-500",
-    Seafood: "bg-sky-500",
-    Side: "bg-emerald-500",
-    Vegan: "bg-green-500",
-    Vegetarian: "bg-lime-500",
-    Breakfast: "bg-yellow-500",
-    Goat: "bg-orange-500"
+    Beef: "#ef4444",
+    Chicken: "#f97316",
+    Dessert: "#ec4899",
+    Lamb: "#f97316",
+    Pasta: "#f59e0b",
+    Pork: "#ef4444",
+    Seafood: "#0ea5e9",
+    Side: "#10b981",
+    Vegan: "#22c55e",
+    Vegetarian: "#84cc16",
+    Breakfast: "#eab308",
+    Goat: "#f97316"
 };
 
 export let state = {

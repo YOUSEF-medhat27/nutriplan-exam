@@ -112,14 +112,14 @@ export function displayCategories() {
         data-category="${state.categories[i].name}"
     >
 
-        <div
-            class="w-10 h-10
-            rounded-lg
-            ${color}
-            flex items-center justify-center
-            text-white
-            shrink-0"
-        >
+       <div
+    class="w-10 h-10
+    rounded-lg
+    flex items-center justify-center
+    text-white
+    shrink-0"
+    style="background-color: ${color};"
+>
             <i class="fa-solid ${icon}"></i>
         </div>
 
@@ -373,7 +373,7 @@ ${meal.youtube ? `
         
     `;
 
-   
+
     recipesGrid.parentElement.classList.add("hidden");
 
     mealDetails.classList.remove("hidden");
@@ -385,19 +385,19 @@ ${meal.youtube ? `
     foodlogSection.classList.add("hidden");
 
 
-   
+
     document
         .getElementById("back-to-meals-btn")
         .addEventListener("click", function () {
 
             mealDetails.classList.add("hidden");
 
-           
+
             recipesGrid.parentElement.classList.remove("hidden");
 
             categoriesgrid.classList.remove("hidden");
 
-           
+
             searchsection.classList.remove("hidden");
 
 
@@ -831,3 +831,4 @@ export function updateLogMealDisplay() {
     document.getElementById("logmeal-carbs").innerText = carbs + "g";
     document.getElementById("logmeal-fat").innerText = fat + "g";
 }
+displayCategories
