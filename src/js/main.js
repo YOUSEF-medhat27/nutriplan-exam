@@ -281,12 +281,12 @@ let headerMenuBtn = document.getElementById("header-menu-btn");
 let sidebarCloseBtn = document.getElementById("sidebar-close-btn");
 
 function openSidebar() {
-    sidebar.classList.remove("-translate-x-full");
-    sidebarOverlay.classList.add("active"); // أو أي كلاس بتستخدمه لإظهار الـ overlay
+    sidebar.classList.add("sidebar-open");
+    sidebarOverlay.classList.add("active");
 }
 
 function closeSidebar() {
-    sidebar.classList.add("-translate-x-full");
+    sidebar.classList.remove("sidebar-open");
     sidebarOverlay.classList.remove("active");
 }
 
