@@ -373,34 +373,31 @@ ${meal.youtube ? `
         
     `;
 
-    // Hide recipes
+   
     recipesGrid.parentElement.classList.add("hidden");
 
-    // Show details
     mealDetails.classList.remove("hidden");
 
     categoriesgrid.classList.add("hidden");
     searchsection.classList.add("hidden");
 
-    // Hide other pages too
     productsSection.classList.add("hidden");
     foodlogSection.classList.add("hidden");
 
 
-    // Back button
+   
     document
         .getElementById("back-to-meals-btn")
         .addEventListener("click", function () {
 
             mealDetails.classList.add("hidden");
 
-            // Show recipes
+           
             recipesGrid.parentElement.classList.remove("hidden");
 
-            // Show categories
             categoriesgrid.classList.remove("hidden");
 
-            // Show search section
+           
             searchsection.classList.remove("hidden");
 
 
@@ -446,6 +443,7 @@ export function displayareas() {
     }
 
     areascusines.innerHTML = box;
+
 
 
     let areaButtons = document.querySelectorAll(".area-btn");

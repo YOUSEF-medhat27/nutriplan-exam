@@ -176,6 +176,7 @@ nutriButtons.forEach(function(button) {
 
 });
 
+
 productsearchbtn.addEventListener("click", function () {
 
     let search = productsearch.value.trim();
@@ -272,3 +273,31 @@ if (logMealModal) {
     }); 
 
 }
+
+
+let sidebar = document.getElementById("sidebar");
+let sidebarOverlay = document.getElementById("sidebar-overlay");
+let headerMenuBtn = document.getElementById("header-menu-btn");
+let sidebarCloseBtn = document.getElementById("sidebar-close-btn");
+
+function openSidebar() {
+    sidebar.classList.remove("-translate-x-full");
+    sidebarOverlay.classList.add("active"); // أو أي كلاس بتستخدمه لإظهار الـ overlay
+}
+
+function closeSidebar() {
+    sidebar.classList.add("-translate-x-full");
+    sidebarOverlay.classList.remove("active");
+}
+
+headerMenuBtn.addEventListener("click", function () {
+    openSidebar();
+});
+
+sidebarCloseBtn.addEventListener("click", function () {
+    closeSidebar();
+});
+
+sidebarOverlay.addEventListener("click", function () {
+    closeSidebar();
+});
