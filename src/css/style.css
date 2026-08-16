@@ -21,11 +21,12 @@
   opacity: 1;
   pointer-events: auto;
 }
+@media (max-width: 767px) {
+  #sidebar {
+    transform: translateX(-100%);
+  }
 
-@media (min-width: 768px) {
-  #sidebar-overlay {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+  #sidebar.sidebar-open {
+    transform: translateX(0);
   }
 }

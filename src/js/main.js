@@ -282,12 +282,12 @@ let sidebarCloseBtn = document.getElementById("sidebar-close-btn");
 
 function openSidebar() {
     sidebar.classList.add("sidebar-open");
-    sidebarOverlay.classList.add("active");
+    sidebarOverlay.classList.add("open");     // ⬅️ اتغيرت من "active" لـ "open"
 }
 
 function closeSidebar() {
     sidebar.classList.remove("sidebar-open");
-    sidebarOverlay.classList.remove("active");
+    sidebarOverlay.classList.remove("open");  // ⬅️ اتغيرت من "active" لـ "open"
 }
 
 headerMenuBtn.addEventListener("click", function () {
