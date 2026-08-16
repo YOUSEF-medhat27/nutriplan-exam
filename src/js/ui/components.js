@@ -18,7 +18,6 @@ let mealDetails = document.getElementById("meal-details");
 let logMealModal = document.getElementById("log-meal-modal");
 
 
-// Display recipes
 export function displayRecipes() {
 
     let box = "";
@@ -404,7 +403,7 @@ ${meal.youtube ? `
             // Show search section
             searchsection.classList.remove("hidden");
 
-            
+
         });
 
     document
@@ -414,7 +413,7 @@ ${meal.youtube ? `
             openLogMealModal();
 
         });
-    
+
 }
 
 
@@ -432,29 +431,30 @@ export function displayareas() {
         </button>
     `;
 
-    for (let i = 0; i < state.areas.length; i++) {
+    let first10Areas = state.areas.slice(0, 10);
+
+    for (let i = 0; i < first10Areas.length; i++) {
 
         box += `
-            <button
-                class="area-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
-                data-area="${state.areas[i].name}"
-            >
-                ${state.areas[i].name}
-            </button>
-        `;
+        <button
+            class="area-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full font-medium text-sm whitespace-nowrap hover:bg-gray-200 transition-all"
+            data-area="${first10Areas[i].name}"
+        >
+            ${first10Areas[i].name}
+        </button>
+    `;
     }
 
     areascusines.innerHTML = box;
 
 
-    // نمسك كل الـ buttons بعد ما اتعملت
     let areaButtons = document.querySelectorAll(".area-btn");
 
     areaButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
 
-            // نشيل اللون الأخضر من كل الأزرار
+
             for (let i = 0; i < areaButtons.length; i++) {
 
                 areaButtons[i].classList.remove(
@@ -468,7 +468,7 @@ export function displayareas() {
                 );
             }
 
-            // نخلي الزرار اللي ضغطنا عليه أخضر
+
             button.classList.remove(
                 "bg-gray-100",
                 "text-gray-700"
@@ -480,7 +480,6 @@ export function displayareas() {
             );
 
 
-            // نجيب الـ area
             let area = button.dataset.area;
 
 
@@ -716,7 +715,7 @@ export function displayFoodLog() {
     updateProgress("carbs", totals.carbs, DAILY_GOALS.carbs, "g");
     updateProgress("fat", totals.fat, DAILY_GOALS.fat, "g");
 
-    
+
     let countEl = document.getElementById("logged-items-count");
     if (countEl) {
         countEl.innerText = `Logged Items (${todayItems.length})`;
@@ -727,7 +726,7 @@ export function displayFoodLog() {
         clearBtn.style.display = todayItems.length > 0 ? "inline-flex" : "none";
     }
 
-    
+
     let listContainer = document.getElementById("logged-items-list");
 
     if (!listContainer) return;
@@ -800,7 +799,7 @@ export function updateProgress(key, current, goal, unit) {
 export function openLogMealModal() {
 
     if (!state.currentMeal || !state.currentNutrition) {
-        
+
         return;
     }
 

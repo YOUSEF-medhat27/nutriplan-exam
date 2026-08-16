@@ -2,18 +2,18 @@
 
 import { displayFoodLog } from "./components.js";
 
-export const API_BASE = "https://nutriplan-api.vercel.app/api";
+export let API_BASE = "https://nutriplan-api.vercel.app/api";
 
-export const FOODLOG_KEY = "nutriplan_foodlog";
+export let FOODLOG_KEY = "nutriplan_foodlog";
 
-export const DAILY_GOALS = {
+export let DAILY_GOALS = {
     calories: 2000,
     protein: 50,
     carbs: 250,
     fat: 65
 };
 
-export const categoryIcons = {
+export let categoryIcons = {
     Beef: "fa-drumstick-bite",
     Chicken: "fa-drumstick-bite",
     Dessert: "fa-cake-candles",
@@ -28,7 +28,7 @@ export const categoryIcons = {
     Goat: "fa-drumstick-bite"
 };
 
-export const categoryColors = {
+export let categoryColors = {
     Beef: "bg-red-500",
     Chicken: "bg-orange-500",
     Dessert: "bg-pink-500",
@@ -43,12 +43,7 @@ export const categoryColors = {
     Goat: "bg-orange-500"
 };
 
-// كل المتغيرات اللي كانت بتتغير (reassign) في الكود الأصلي (recipes = ...، currentMeal = ...، إلخ)
-// اتحطت جوه object واحد اسمه state، عشان باقي الملفات تقدر تعدلها:
-// JS مبيسمحش تعدل متغير let متجاب بـ import من ملف تاني مباشرة،
-// لكن بيسمح تعدل property جوه object متجاب بالـ import.
-// ده التغيير الميكانيكي الوحيد المطلوب في الكود الأصلي.
-export const state = {
+export let state = {
     recipes: [],
     categories: [],
     areas: [],
@@ -62,7 +57,7 @@ export const state = {
 
 export function getTodayKey() {
     let d = new Date();
-    return d.toISOString().split("T")[0]; // "2026-08-15"
+    return d.toISOString().split("T")[0]; 
 }
 
 export function getFoodLog() {

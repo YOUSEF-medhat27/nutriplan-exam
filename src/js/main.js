@@ -3,8 +3,7 @@ import { getRecipes, getCategories, getareas, getdetails, getproducts } from "./
 import { displayFoodLog, updateLogMealDisplay, displayproduct } from "./ui/components.js";
 import { state, clearTodayFoodLog, addToFoodLog } from "./ui/appState.js";
 
-// getdetails بتتنادى من inline onclick جوه الـ HTML اللي بيتبني ديناميكيًا (في displayRecipes)
-// لازم تتحط على window عشان تفضل شغالة تحت type="module"
+
 window.getdetails = getdetails;
 
 
@@ -14,7 +13,7 @@ let listbtn = document.getElementById("list-view-btn");
 let gridbtn = document.getElementById("grid-view-btn");
 
 
-// Search
+
 searchInput.addEventListener("keydown", function (e) {
 
     if (e.key === "Enter") {
@@ -28,13 +27,11 @@ searchInput.addEventListener("keydown", function (e) {
 });
 
 
-// First load
 getRecipes("beef");
 
 
 listbtn.addEventListener("click", function () {
 
-    // List View = 2 cards
     recipesGrid.classList.remove(
         "grid-cols-1",
         "sm:grid-cols-2",
@@ -43,7 +40,7 @@ listbtn.addEventListener("click", function () {
 
     recipesGrid.classList.add("grid-cols-2");
 
-    // Active button
+  
     listbtn.classList.add("bg-white", "rounded-md");
     gridbtn.classList.remove("bg-white", "rounded-md");
 
@@ -52,7 +49,7 @@ listbtn.addEventListener("click", function () {
 
 gridbtn.addEventListener("click", function () {
 
-    // Grid View = 4 cards
+  
     recipesGrid.classList.remove("grid-cols-2");
 
     recipesGrid.classList.add(
@@ -61,7 +58,7 @@ gridbtn.addEventListener("click", function () {
         "lg:grid-cols-4"
     );
 
-    // Active button
+  
     gridbtn.classList.add("bg-white", "rounded-md");
     listbtn.classList.remove("bg-white", "rounded-md");
 
@@ -74,7 +71,7 @@ getCategories();
 getareas();
 
 
-// *********التنقل في اسايد بار
+
 
 let navLinks = document.querySelectorAll(".nav-link");
 
@@ -230,7 +227,7 @@ if (logMealModal) {
     });
 
 
-    // Cancel
+  
     document.getElementById("logmeal-cancel").addEventListener("click", function () {
 
         logMealModal.classList.add("hidden");
@@ -238,10 +235,9 @@ if (logMealModal) {
     });
 
 
-    // Log Meal
-    document.getElementById("logmeal-confirm").addEventListener("click", function () {
+   document.getElementById("logmeal-confirm").addEventListener("click", function () {
 
-        // إضافة الوجبة للـ Daily Log
+      
         addToFoodLog({
             type: "meal",
             name: state.currentMeal.name,
@@ -253,17 +249,15 @@ if (logMealModal) {
             fat: state.currentNutrition.fat * state.logMealServings
         });
 
-
-        // قفل Modal بتاع اختيار الـ servings
         logMealModal.classList.add("hidden");
 
 
-        // كتابة رسالة النجاح
+        
         document.getElementById("logmeal-success-text").innerText =
             `${state.currentMeal.name} (${state.logMealServings} serving) has been added to your daily log.`;
 
 
-        // كتابة السعرات
+  
         document.getElementById("logmeal-success-calories").innerText =
             `+${state.currentNutrition.calories * state.logMealServings} calories`;
 
@@ -275,6 +269,6 @@ if (logMealModal) {
             logMealSuccessModal.classList.add("hidden");
 
         }, 2000);
-    });
+    }); 
 
 }

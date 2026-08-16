@@ -5,7 +5,7 @@ import {
     displayareas, displayNutrition, displayproduct
 } from "./components.js";
 
-// Get recipes
+
 export async function getRecipes(search) {
 
     let response = await fetch(
@@ -21,7 +21,7 @@ export async function getRecipes(search) {
     displayRecipes();
 }
 
-
+area
 export async function getCategories() {
 
     let response = await fetch(
