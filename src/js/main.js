@@ -71,13 +71,90 @@ getCategories();
 getareas();
 
 
+// ده القديم ياهندسه واللي بعده لما دورت علشان اغيرurl 
 
+// let navLinks = document.querySelectorAll(".nav-link");
 
+// let sections = document.querySelectorAll(
+//     "#meals-section, #products-section, #foodlog-section"
+// );
+
+// navLinks.forEach(function (link) {
+
+//     link.addEventListener("click", function (e) {
+
+//         e.preventDefault();
+
+//         let sectionId = link.dataset.section;
+
+//         sections.forEach(function (section) {
+
+//             section.classList.add("hidden");
+
+//         });
+
+//         document
+//             .getElementById(sectionId)
+//             .classList.remove("hidden");
+
+//         navLinks.forEach(function (nav) {
+
+//             nav.classList.remove(
+//                 "bg-emerald-50",
+//                 "text-emerald-700"
+//             );
+
+//             nav.classList.add(
+//                 "text-gray-600"
+//             );
+
+//         });
+
+//         link.classList.remove(
+//             "text-gray-600"
+//         );
+
+//         link.classList.add(
+//             "bg-emerald-50",
+//             "text-emerald-700"
+//         );
+
+//     });
+
+// });
 let navLinks = document.querySelectorAll(".nav-link");
+let sections = document.querySelectorAll("#meals-section, #products-section, #foodlog-section");
 
-let sections = document.querySelectorAll(
-    "#meals-section, #products-section, #foodlog-section"
-);
+let sectionToHash = {
+    "meals-section": "home",
+    "products-section": "product-scanner",
+    "foodlog-section": "food-log"
+};
+
+let hashToSection = {
+    "home": "meals-section",
+    "product-scanner": "products-section",
+    "food-log": "foodlog-section"
+};
+
+function switchToSection(sectionId) {
+
+    sections.forEach(function (section) {
+        section.classList.add("hidden");
+    });
+
+    document.getElementById(sectionId).classList.remove("hidden");
+
+    navLinks.forEach(function (nav) {
+        nav.classList.remove("bg-emerald-50", "text-emerald-700");
+        nav.classList.add("text-gray-600");
+
+        if (nav.dataset.section === sectionId) {
+            nav.classList.remove("text-gray-600");
+            nav.classList.add("bg-emerald-50", "text-emerald-700");
+        }
+    });
+}
 
 navLinks.forEach(function (link) {
 
@@ -87,41 +164,33 @@ navLinks.forEach(function (link) {
 
         let sectionId = link.dataset.section;
 
-        sections.forEach(function (section) {
+        window.location.hash = sectionToHash[sectionId];
 
-            section.classList.add("hidden");
-
-        });
-
-        document
-            .getElementById(sectionId)
-            .classList.remove("hidden");
-
-        navLinks.forEach(function (nav) {
-
-            nav.classList.remove(
-                "bg-emerald-50",
-                "text-emerald-700"
-            );
-
-            nav.classList.add(
-                "text-gray-600"
-            );
-
-        });
-
-        link.classList.remove(
-            "text-gray-600"
-        );
-
-        link.classList.add(
-            "bg-emerald-50",
-            "text-emerald-700"
-        );
+        switchToSection(sectionId);
 
     });
 
 });
+
+
+window.addEventListener("hashchange", function () {
+
+    let hash = window.location.hash.replace("#", "");
+    let sectionId = hashToSection[hash] || "meals-section";
+
+    switchToSection(sectionId);
+
+});
+
+
+let initialHash = window.location.hash.replace("#", "");
+let initialSection = hashToSection[initialHash] || "meals-section";
+
+switchToSection(initialSection);
+
+if (!initialHash) {
+    window.location.hash = "home";
+}
 
 
 // ************************الصفحه التانيه
